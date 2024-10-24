@@ -73,5 +73,20 @@ export default function QueryProcessor(query: string): string {
     return result.join(", ") || "None"; // Returns the result as a string or "None" if no match
     }
   }
+  if (query.includes("primes")) {
+    const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+    if (numbers != null){
+    const isPrime = (num: number) => {
+      if (num < 2) return false;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    };
+    const result = numbers.filter(num => isPrime(Number(num))); // Filters prime numbers
+    return result.join(", ") || "None"; // Returns the prime numbers as a string or "None" if no primes are found
+    }
+  }
+  
   return "";
 }
