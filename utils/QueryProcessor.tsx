@@ -47,6 +47,20 @@ export default function QueryProcessor(query: string): string {
     const largest = Math.max(...numbers.map(Number)); // Finds the largest number
     return largest.toString(); // Returns the largest number as a string
     }
+  }
+  if (query.includes("largest")) {
+    const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+    if (numbers != null){
+    const largest = Math.max(...numbers.map(Number)); // Finds the largest number
+    return largest.toString(); // Returns the largest number as a string
+    }
+  }
+  if (query.includes("multiplied")) {
+    const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+    if (numbers != null){
+    const result = parseInt(numbers[0]) * parseInt(numbers[1]); // Adds the numbers
+    return result.toString(); // Returns the sum as a string
+    }
   } 
   if (query.includes("square and a cube")) {
     const numbers = query.match(/\d+/g); // Extracts all numbers from the query
