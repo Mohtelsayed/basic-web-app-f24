@@ -70,7 +70,7 @@ export default function QueryProcessor(query: string): string {
     };
     if (numbers != null){
     const result = numbers.filter(num => isSquareAndCube(Number(num))); // Filters numbers that are both squares and cubes
-    return result.join(", ") || "None"; // Returns the result as a string or "None" if no match
+    return result.join(", ") || ""; // Returns the result as a string or "None" if no match
     }
   }
   if (query.includes("primes")) {
@@ -84,7 +84,7 @@ export default function QueryProcessor(query: string): string {
       return true;
     };
     const result = numbers.filter(num => isPrime(Number(num))); // Filters prime numbers
-    return result.join(", ") || "None"; // Returns the prime numbers as a string or "None" if no primes are found
+    return result.join(", ") || ""; // Returns the prime numbers as a string or "None" if no primes are found
     }
   }
   
