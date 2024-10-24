@@ -42,4 +42,11 @@ describe("QueryProcessor", () => {
             "19"
           ));
     });
+    test('', () => {
+        const query = "Which of the following numbers is the largest: 52, 8, 40?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "52"
+          ));
+    });
 });
