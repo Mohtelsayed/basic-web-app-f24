@@ -50,7 +50,7 @@ export default function QueryProcessor(query: string): string {
   } 
   if (query.includes("square and a cube")) {
     const numbers = query.match(/\d+/g); // Extracts all numbers from the query
-    const isSquareAndCube = (num) => {
+    const isSquareAndCube = (num : number) => {
       const root = Math.cbrt(num);
       return Number.isInteger(root) && Number.isInteger(Math.sqrt(num));
     };
