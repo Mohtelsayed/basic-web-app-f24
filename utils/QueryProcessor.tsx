@@ -30,8 +30,17 @@ export default function QueryProcessor(query: string): string {
   if (query.includes("plus")) {
     const numbers = query.match(/\d+/g); // Extracts all numbers from the query
     if (numbers != null){
-    const result = parseInt(numbers[0]) + parseInt(numbers[1]); // Adds the numbers
+    const result = numbers.reduce((sum, num) => sum + parseInt(num), 0); // Adds all numbers
     return result.toString(); // Returns the sum as a string
+    }
+  }
+  if (query.includes("to the power of")) {
+    const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+    if(numbers != null){
+    const base = parseInt(numbers[0]);
+    const exponent = parseInt(numbers[1]);
+    const result = Math.pow(base, exponent); // Calculates the power
+    return result.toString(); // Returns the result as a string
     }
   } 
   if (query.includes("minus")) {
@@ -87,6 +96,12 @@ export default function QueryProcessor(query: string): string {
     return result.join(", ") || ""; // Returns the prime numbers as a string or "None" if no primes are found
     }
   }
+  // if (query.includes("plus")) {
+  //   const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+  //   if (numbers != null){
+
+  //   }
+  // }
   
   return "";
 }
