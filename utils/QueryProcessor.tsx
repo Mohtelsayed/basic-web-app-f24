@@ -33,6 +33,13 @@ export default function QueryProcessor(query: string): string {
     const result = parseInt(numbers[0]) + parseInt(numbers[1]); // Adds the numbers
     return result.toString(); // Returns the sum as a string
     }
+  } 
+  if (query.includes("minus")) {
+    const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+    if (numbers != null){
+    const result = parseInt(numbers[0]) - parseInt(numbers[1]); // Adds the numbers
+    return result.toString(); // Returns the sum as a string
+    }
   }  
   if (query.includes("largest")) {
     const numbers = query.match(/\d+/g); // Extracts all numbers from the query
@@ -40,6 +47,17 @@ export default function QueryProcessor(query: string): string {
     const largest = Math.max(...numbers.map(Number)); // Finds the largest number
     return largest.toString(); // Returns the largest number as a string
     }
-  }  
+  } 
+  if (query.includes("square and a cube")) {
+    const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+    const isSquareAndCube = (num) => {
+      const root = Math.cbrt(num);
+      return Number.isInteger(root) && Number.isInteger(Math.sqrt(num));
+    };
+    if (numbers != null){
+    const result = numbers.filter(num => isSquareAndCube(Number(num))); // Filters numbers that are both squares and cubes
+    return result.join(", ") || "None"; // Returns the result as a string or "None" if no match
+    }
+  }
   return "";
 }
