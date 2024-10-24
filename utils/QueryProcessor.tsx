@@ -36,14 +36,15 @@ export default function QueryProcessor(query: string): string {
     return multiplication.toString(); // Returns the result as a string
     }
   }
-  
-  if (query.includes("plus")) {
+  else if (query.includes("plus")) {
     const numbers = query.match(/\d+/g); // Extracts all numbers from the query
     if (numbers != null){
     const result = numbers.reduce((sum, num) => sum + parseInt(num), 0); // Adds all numbers
     return result.toString(); // Returns the sum as a string
     }
   }
+  
+
   if (query.includes("to the power of")) {
     const numbers = query.match(/\d+/g); // Extracts all numbers from the query
     if(numbers != null){
