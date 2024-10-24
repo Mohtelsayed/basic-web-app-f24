@@ -27,5 +27,10 @@ export default function QueryProcessor(query: string): string {
   if (query.includes("What is 18 plus 55?")) {
     return ("73");
   }
+  if (query.includes("plus")) {
+    const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+    const result = parseInt(numbers[0]) + parseInt(numbers[1]); // Adds the numbers
+    return result.toString(); // Returns the sum as a string
+  }  
   return "";
 }
