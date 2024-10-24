@@ -27,6 +27,16 @@ export default function QueryProcessor(query: string): string {
   if (query.includes("What is 18 plus 55?")) {
     return ("73");
   }
+
+  if (query.includes("plus") && query.includes("multiplied by")) {
+    const numbers = query.match(/\d+/g); // Extracts all numbers from the query
+    if (numbers != null){
+    const addition = parseInt(numbers[0]) + parseInt(numbers[1]); // Adds the first two numbers
+    const multiplication = addition * parseInt(numbers[2]); // Multiplies the sum by the third number
+    return multiplication.toString(); // Returns the result as a string
+    }
+  }
+  
   if (query.includes("plus")) {
     const numbers = query.match(/\d+/g); // Extracts all numbers from the query
     if (numbers != null){
