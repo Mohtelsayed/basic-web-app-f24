@@ -28,10 +28,10 @@ describe("QueryProcessor", () => {
     });
 
     test('', () => {
-        const query = "";
+        const query = "What is 80 plus 11?";
         const response: string = QueryProcessor(query);
         expect(response).toBe((
-            "mtelsaye"
+            "91"
           ));
     });
 });
