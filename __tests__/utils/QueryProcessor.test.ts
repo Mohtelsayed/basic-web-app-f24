@@ -26,4 +26,12 @@ describe("QueryProcessor", () => {
             "mtelsaye"
           ));
     });
+
+    test('', () => {
+        const query = "";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "mtelsaye"
+          ));
+    });
 });
